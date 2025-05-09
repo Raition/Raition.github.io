@@ -1,0 +1,104 @@
+body{
+	margin: 0;
+	padding: 0
+}
+.container{
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 25px;
+	font-family: Montserrat;
+}
+.source-location{
+	font-size: 14px;
+	font-weight: 500;
+	text-transform: uppercase;
+	width: 300px;
+	margin: 0 auto;
+	color: #3E3E3E;
+}
+.source-text{
+	display: flex;
+	align-items: center;
+	width: 300px;
+	margin: 0 auto;
+	color: #838383;
+}
+.source-input{
+	font-family: Montserrat;
+	font-weight: 500;
+	font-size: 20px;
+	border-right: none;
+	border-left: none;
+	border-top: none;
+	border-bottom: 2px solid #838383;
+	padding-bottom: 10px;
+}
+.source-input:focus{
+	outline: none;
+}
+.source-btn{
+	width: 60px;
+	height: 40px;
+	font-weight: 500;
+	font-size: 14px;
+	color: #393939;
+	text-transform: uppercase;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-right: none;
+	border-left: none;
+	border-top: none;
+	border-bottom: 2px solid #838383;
+	background-color: transparent;
+	margin-bottom: 3px;
+	padding-bottom: 20px;
+	transition: 0.2s;
+}
+.source-btn:hover{
+	color: #000000;
+}
+.source-btn:active{
+	color: #808080;
+}
+.weather{
+	width: 600px;
+	height: 420px;
+	margin: 0 auto;
+	margin-top: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	background-color: #BEC5E1;
+	border-radius: 15px;
+	box-shadow: 0px 12px 35px -6px #858999;
+}
+.weather-img{
+	width: 130px;
+	height: 130px;
+	background-image: url(1.png);
+	background-size: 100%;
+}
+.weather-info{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+.weather-temp{
+	font-size: 56px;
+	font-weight: 400;
+}
+.weather-sky{
+	font-size: 28px;
+	font-weight: 400;
+	margin-top: 40px;
+}
+.weather-today{
+	font-size: 16px;
+	font-weight: 400;
+	margin-top: 20px;
+}

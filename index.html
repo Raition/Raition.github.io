@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head><link rel="stylesheet" type="text/css" href="style.css">
+	<title></title>
+</head>
+<body>
+
+<div class="container">
+	<div class="source-location">location</div>
+	<div class="source-text">
+		<input type="text" class="source-input">
+		<button id="btn" class="source-btn">set</button>
+	</div>
+
+	<div class="weather">
+		<div class="weather-img"></div>
+		<div class="weather-info">
+			<div class="weather-temp">0&#176</div>
+			<div class="weather-sky">None</div>
+			<div class="weather-today">None, None 1</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	
+	let currentDate = new Date();
+	let input = document.querySelector('.source-input');
+	let temp = document.querySelector('.weather-temp');
+	let sky = document.querySelector('.weather-sky');
+	let day = document.querySelector('.weather-today');
+	let img = document.querySelector('.weather-img');
+	let week;
+	let month;
+	let today;
+
+	function findDay(){
+		switch(currentDate.getDay()){
+			case 0:
+				week = 'Sunday';
+				break;
+			case 1:
+				week = 'Monday';
+				break;
+			case 2:
+				week = 'Tuesday';
+				break;
+			case 3:
+				week = 'Wednesday';
+				break;
+			case 4:
+				week = 'Thursday';
+				break;
+			case 5:
+				week = 'Friday';
+				break;
+			case 6:
+				week = 'Sunday';
+				break;
+		}
+		switch(currentDate.getMonth()){
+			case 0:
+				month = 'January';
+				break;
+			case 1:
+				month = 'February';
+				break;
+			case 2:
+				month = 'March';
+				break;
+			case 3:
+				month = 'April';
+				break;
+			case 4:
+				month = 'May';
+				break;
+			case 5:
+				month = 'June';
+				break;
+			case 6:
+				month = 'July';
+				break;
+			case 7:
+				month = 'August';
+				break;
+			case 8:
+				month = 'September';
+				break;
+			case 9:
+				month = 'October';
+				break;
+			case 10:
+				month = 'November';
+				break;
+			case 11:
+				month = 'December';
+				break;
+		}
+	}
+	findDay()
+	
+	async function showWeather(){
+		let respone = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=061a4c4f5d57c58f2577fd395d02030d`)
+		let date = await respone.json();
+		console.log(date);
+
+		if(date.weather[0].main == 'Clear'){
+			img.style.backgroundImage = 'url(1.png)';
+		}
+		else if(date.weather[0].main == 'Clouds'){
+			img.style.backgroundImage = 'url(2.png)';
+		}
+		else if(date.weather[0].main == 'Rain'){
+			img.style.backgroundImage = 'url(4.png)';
+		}
+		else{
+			img.style.backgroundImage = 'url(3.png)';
+		}
+
+		temp.innerHTML = Math.round(date.main.temp - 273) + '&#176';
+		sky.innerHTML = date.weather[0].main;
+		day.innerHTML = `${week}, ${month} ${currentDate.getDate()}`;
+	}
+	btn.addEventListener('click', showWeather);
+</script>
+
+</body>
+</html>
